@@ -22,6 +22,32 @@ The model implements **Level 1 LLM Integration**: LLM-powered profile generation
 
 ## Installation
 
+### Option 1: GitHub Codespaces (Recommended for Quick Start)
+
+The easiest way to try the simulation without any local setup:
+
+1. **Create Codespace**
+   - On the GitHub repository page, click the green **"Code"** button
+   - Select the **"Codespaces"** tab
+   - Click **"Create codespace on [branch-name]"**
+
+2. **Install Dependencies** (in Codespace terminal)
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Run Your First Simulation**
+   ```bash
+   # Quick test (takes ~10 seconds)
+   python scripts/run_single_simulation.py --random-seed 42
+   ```
+
+✅ **No API keys needed** - Mock LLM works out of the box
+✅ **Pre-configured** - All paths and configs work as-is
+✅ **Fast** - Simulations run in seconds
+
+### Option 2: Local Installation
+
 ```bash
 # Clone or navigate to the repository
 cd ABM_policy_simulation
@@ -197,6 +223,55 @@ Results are saved to `data/output/`:
 - `{scenario}_run{N}_monthly.csv` - Month-by-month metrics
 - `{scenario}_run{N}_report.json` - Final summary
 - `{scenario}_aggregated.json` - Statistics across all runs
+
+### Viewing Results in Codespaces
+
+```bash
+# List output files
+ls data/output/
+
+# View monthly metrics
+cat data/output/base_run42_monthly.csv
+
+# View final report (formatted JSON)
+cat data/output/base_run42_report.json | python -m json.tool
+
+# Quick comparison of multiple runs
+grep "employment_rate" data/output/*.csv
+```
+
+### Experimenting with Scenarios in Codespaces
+
+```bash
+# Edit existing scenario
+nano config/scenarios/low_counseling_low_subsidy.yaml
+
+# Or create your own
+cp config/scenarios/low_counseling_low_subsidy.yaml config/scenarios/my_custom_scenario.yaml
+nano config/scenarios/my_custom_scenario.yaml
+
+# Run your custom scenario
+python scripts/run_single_simulation.py --scenario my_custom_scenario
+
+# Run batch for statistical analysis (5 runs is good for testing)
+python scripts/run_scenario_batch.py --scenario my_custom_scenario --num-runs 5
+```
+
+### Using Real LLMs in Codespaces
+
+```bash
+# Set API key as environment variable
+export OPENAI_API_KEY="your-key-here"
+
+# Run with OpenAI
+python scripts/run_single_simulation.py --llm-provider openai
+
+# Or with Anthropic
+export ANTHROPIC_API_KEY="your-key-here"
+python scripts/run_single_simulation.py --llm-provider anthropic
+```
+
+**Note**: Mock LLM is recommended for testing - it's free, fast, and produces realistic results!
 
 ## Extending the Model
 
