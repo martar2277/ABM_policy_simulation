@@ -11,6 +11,19 @@ This simulation models interactions between **NEETs** (Not in Education, Employm
 
 The model implements **Level 1 LLM Integration**: LLM-powered profile generation for realistic agent diversity, with rule-based decision-making during simulation.
 
+## 🌐 Web Interface
+
+**Try the live interactive demo**: [Youth Employment Policy Simulator](https://[your-app-name].streamlit.app) *(coming soon)*
+
+The Streamlit web interface provides:
+- 🎛️ **Interactive controls** - Adjust policies with sliders and dropdowns
+- 📊 **Real-time visualization** - See results with charts and metrics
+- 💡 **Plain language explanations** - No technical jargon
+- 📥 **Download results** - Export data and reports
+- 🚀 **No installation needed** - Runs in your browser
+
+Perfect for policy makers, practitioners, and anyone interested in exploring policy interventions!
+
 ## Features
 
 - ✅ **Expandable Architecture** - Easy to add new agent types (unemployment services, training providers, etc.)
@@ -61,7 +74,25 @@ pip install openai anthropic
 
 ## Quick Start
 
-### Run a Single Simulation
+### Run the Web Interface (Recommended)
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Start the Streamlit app
+streamlit run streamlit_app.py
+```
+
+The app will open in your browser at `http://localhost:8501`
+
+**Features:**
+- Interactive sliders for all policy parameters
+- Real-time results with charts
+- Download data and reports
+- No coding required!
+
+### Run Command-Line Simulations
 
 ```bash
 # Basic run with mock LLM (no API costs)
