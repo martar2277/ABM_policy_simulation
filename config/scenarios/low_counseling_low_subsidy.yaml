@@ -1,0 +1,20 @@
+# Scenario: Low Counseling + Low Subsidy
+# Test baseline with minimal intervention
+
+scenario_name: "Low Counseling + Low Subsidy"
+description: "Minimal intervention scenario with low counseling budget and low wage subsidy"
+
+# Inherit from base config, override specific values
+policies:
+  counseling:
+    budget_monthly: 30000  # Low budget
+    intensity: 0.10
+
+  subsidy:
+    available: true
+    effectiveness: 0.3  # Low subsidy (minimum)
+
+# Run multiple times for statistical analysis
+simulation:
+  num_runs: 30
+  duration_months: 12
