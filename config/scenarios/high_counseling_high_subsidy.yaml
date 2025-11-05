@@ -1,0 +1,18 @@
+# Scenario: High Counseling + High Subsidy
+# Test maximum intervention
+
+scenario_name: "High Counseling + High Subsidy"
+description: "Maximum intervention scenario with high counseling budget and high wage subsidy"
+
+policies:
+  counseling:
+    budget_monthly: 100000  # High budget
+    intensity: 0.15
+
+  subsidy:
+    available: true
+    effectiveness: 0.8  # High subsidy
+
+simulation:
+  num_runs: 30
+  duration_months: 12

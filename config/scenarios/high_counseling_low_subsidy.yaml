@@ -1,0 +1,18 @@
+# Scenario: High Counseling + Low Subsidy
+# Test counseling-focused intervention
+
+scenario_name: "High Counseling + Low Subsidy"
+description: "Counseling-focused intervention with high counseling budget but minimal wage subsidy"
+
+policies:
+  counseling:
+    budget_monthly: 100000  # High budget
+    intensity: 0.15
+
+  subsidy:
+    available: true
+    effectiveness: 0.3  # Low subsidy
+
+simulation:
+  num_runs: 30
+  duration_months: 12
